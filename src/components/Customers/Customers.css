@@ -1,0 +1,20 @@
+.Customers {
+  display: flex;
+  justify-content: space-evenly;
+  user-select: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .Customers{
+      justify-content:flex-start;
+      margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px)
+{
+  .Customers{
+      flex-direction: column;
+      align-items: center;
+  }
+}

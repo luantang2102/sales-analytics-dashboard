@@ -1,0 +1,54 @@
+.Customers_Table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.MuiTableRow-root > * {
+  padding: 10px;
+}
+
+.MuiTableRow-root.MuiTableRow-head > * {
+  font-weight: bold !important;
+}
+
+.Customers_Table td,
+th {
+  border: none !important;
+}
+
+.Customers_Table:first-child {
+  border-radius: 0.7rem !important;
+}
+
+.status {
+  padding: 8px;
+  border-radius: 9px;
+}
+
+.details {
+  color: #00b5ff !important;
+}
+
+.details:hover {
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .Customers_Table {
+    width: 170%;
+    margin-top: 2rem;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .Customers_Table{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 23rem;
+  }
+  
+}
