@@ -12,6 +12,7 @@ import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import format from "date-fns/format";
 import "./OrdersTable.css";
+import { useNavigate } from "react-router-dom";
 
 function createData(orderId, name, trackingId, date, status) {
   return { orderId, name, trackingId, date, status };
@@ -60,6 +61,12 @@ const makeStyle = (status) => {
 };
 
 export default function BasicTable() {
+  const navigate = useNavigate();
+
+  const handleDetailsClick = (row) => {
+    navigate("/order/" + row.orderId);
+  };
+
   const [selectedDate, setSelectedDate] = useState(null);
 
   const handleDateChange = (newValue) => {
@@ -71,10 +78,11 @@ export default function BasicTable() {
   };
 
   const filteredRows = selectedDate
-    ? rows.filter((row) => row.date === format(selectedDate, "d MMMM yyyy"))
+    ? rows.filter((row) => row.date === format(selectedDate, "dd/MM/yyyy"))
     : rows;
 
   return (
+    
     <div className="Orders_Table">
       <h3>Tất cả đơn hàng</h3>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -131,7 +139,7 @@ export default function BasicTable() {
                     {row.status}
                   </span>
                 </TableCell>
-                <TableCell align="left" className="details">
+                <TableCell align="left" className="details" onClick={() => handleDetailsClick(row)}>
                   Chi tiết
                 </TableCell>
               </TableRow>

@@ -9,8 +9,8 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "./Table.css";
 
-function createData(invoiceId, name, trackingId, date, status) {
-  return { invoiceId, name, trackingId, date, status };
+function createData(orderId, name, trackingId, date, status) {
+  return { orderId, name, trackingId, date, status };
 }
 
 const rows = [
@@ -49,7 +49,7 @@ export default function BasicTable() {
   const navigate = useNavigate();
 
   const handleDetailsClick = (row) => {
-    navigate("/order/" + row.invoiceId);
+    navigate("/order/" + row.orderId);
   };
 
   return (
@@ -73,10 +73,10 @@ export default function BasicTable() {
           <TableBody style={{ color: "white" }}>
             {rows.map((row) => (
               <TableRow
-                key={row.invoiceId}
+                key={row.orderId}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell align="left">{row.invoiceId}</TableCell>
+                <TableCell align="left">{row.orderId}</TableCell>
                 <TableCell style={{ color: "orange" }} component="th" scope="row">
                   {row.name}
                 </TableCell>
