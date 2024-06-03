@@ -57,7 +57,7 @@ function OrderDetail() {
         </Typography>
         <Typography variant="body1" gutterBottom>
           <strong>Trạng thái:</strong>
-          <Avatar sx={{ backgroundColor: statusColor, marginLeft: '5px' }}>
+          <Avatar className = "statusIcon" sx={{ backgroundColor: statusColor, marginLeft: '5px' }}>
             {statusIcon}
           </Avatar>
           {order.status}
